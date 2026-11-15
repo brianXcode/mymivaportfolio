@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Olalekan Abdulqudus Fatokun – Student Portfolio</title>
+  <meta name="description" content="Student portfolio of Olalekan Abdulqudus Fatokun, MIVA Open University, COS 106 – Introduction to Web Technologies.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        Olalekan Abdulqudus Fatokun
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: name, photograph, headline and short biography -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">MIVA Open University · COS 106</span>
+          <h1 id="hero-heading">Hi, I’m Olalekan Abdulqudus Fatokun</h1>
+          <p class="hero-lead">
+            I am a 100 level Software Engineering student at MIVA Open University with a strong interest in software
+            development, problem-solving and building useful applications. My goal is to
+            develop reliable software that solves real-world problems.
+          </p>
+          <p class="hero-lead">
+            This website is my term project for COS 106 – Introduction to Web Technologies.
+            It is built with plain HTML, CSS and JavaScript.
+          </p>
+          <div class="button-row">
+            <a class="btn btn--primary" href="projects.html">View my projects</a>
+            <a class="btn btn--light" href="planner.html">Open the Academic Planner</a>
+          </div>
+        </div>
+
+        <figure class="profile-photo">
+          <img src="assets/images/profile.jpg" width="320" height="320"
+               alt="Photograph of Olalekan Abdulqudus Fatokun wearing round glasses and an olive T-shirt.">
+          <figcaption>Software Engineering · 100 Level</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Skills overview -->
+    <section class="section" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading">Skills overview</h2>
+        <p class="section-intro">
+          The languages and tools I am learning and using to build projects.
+        </p>
+        <ul class="chip-list" aria-label="Technical skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Java</li>
+          <li>Go</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Academic interests -->
+    <section class="section section--tinted" aria-labelledby="interests-heading">
+      <div class="container">
+        <h2 id="interests-heading">Academic interests</h2>
+        <div class="grid grid--cards">
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">&lt;/&gt;</span>
+            <h3>Software development</h3>
+            <p>Writing clean, readable code and turning ideas into working programs, from web pages to back-end services.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">?</span>
+            <h3>Problem-solving</h3>
+            <p>Breaking a large problem into small steps, testing each step, and finding the simplest solution that works.</p>
+          </article>
+          <article class="card">
+            <span class="card-icon" aria-hidden="true">✓</span>
+            <h3>Useful applications</h3>
+            <p>Building tools people actually use, such as the Academic Planner on this site for keeping track of coursework.</p>
+          </article>
+        </div>
+        <div class="button-row">
+          <a class="btn btn--outline" href="about.html">More about me</a>
+          <a class="btn btn--outline" href="contact.html">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="current-year">2026</span> Olalekan Abdulqudus Fatokun · COS 106 Term Project · MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

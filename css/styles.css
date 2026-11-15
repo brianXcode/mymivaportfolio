@@ -1,0 +1,1029 @@
+/* ==========================================================================
+   COS 106 Student Portfolio — shared stylesheet
+   Every page links to this one external file.
+
+   Sections:
+   1. Colour and spacing variables
+   2. Base styles (reset, typography, links, focus)
+   3. Layout helpers (container, sections, grids)
+   4. Header and navigation (including the mobile menu)
+   5. Buttons
+   6. Page components (hero, cards, table, media, forms, planner)
+   7. Footer
+   8. Responsive breakpoints
+   9. Reduced-motion support
+   ========================================================================== */
+
+/* 1. Colour and spacing variables ---------------------------------------- */
+:root {
+  --navy-900: #0b1f3a;
+  --navy-700: #16335c;
+  --navy-500: #2a4f80;
+  --teal-700: #0f766e;   /* teal text on white: 5.4:1 contrast */
+  --teal-500: #14a39a;
+  --teal-100: #d9f3f0;
+  --white: #ffffff;
+  --grey-50: #f5f7fa;
+  --grey-200: #dde3ea;
+  --grey-600: #4a5568;
+  --text: #1a2433;
+  --error: #b42318;
+  --error-bg: #fdecea;
+  --success: #116149;
+  --success-bg: #e3f6ee;
+  --warning-bg: #fff6e0;
+  --warning-border: #e0a800;
+
+  --radius: 12px;
+  --shadow: 0 6px 20px rgba(11, 31, 58, 0.08);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --max-width: 1120px;
+  --font: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 2. Base styles ---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--navy-900);
+  line-height: 1.25;
+  margin: 0 0 var(--space-2);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+h3 { font-size: 1.25rem; }
+
+p {
+  margin: 0 0 var(--space-2);
+}
+
+a {
+  color: var(--teal-700);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--navy-700);
+}
+
+/* A clear, consistent keyboard focus ring on every interactive element. */
+:focus-visible {
+  outline: 3px solid var(--teal-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Lets keyboard users jump past the navigation. */
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -100px;
+  background: var(--navy-900);
+  color: var(--white);
+  padding: var(--space-1) var(--space-2);
+  border-radius: 6px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: var(--space-1);
+  color: var(--white);
+}
+
+/* Hidden visually but still read by screen readers. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 3. Layout helpers ------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+
+.section {
+  padding: var(--space-4) 0;
+}
+
+.section--tinted {
+  background: var(--grey-50);
+}
+
+.section-intro {
+  max-width: 65ch;
+  color: var(--grey-600);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* Cards wrap automatically: as many 260px+ columns as fit. */
+.grid--cards {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.grid--two {
+  grid-template-columns: 1fr;
+}
+
+/* 4. Header and navigation ------------------------------------------------ */
+.site-header {
+  background: var(--navy-900);
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 64px;
+  gap: var(--space-1);
+}
+
+.brand {
+  flex: 1 1 0;        /* the name may wrap so the Menu button stays on the same row */
+  min-width: 0;
+  line-height: 1.2;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: var(--space-1) 0;
+}
+
+.brand:hover {
+  color: var(--teal-100);
+}
+
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--teal-500);
+  color: var(--navy-900);
+  font-weight: 800;
+}
+
+/* The menu button only shows on small screens (see breakpoints below). */
+.nav-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 0.9rem;
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  border-color: var(--teal-500);
+}
+
+.nav-toggle-icon,
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle-icon {
+  position: relative;
+}
+
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-icon::before { top: -6px; }
+.nav-toggle-icon::after { top: 6px; }
+
+/* Turn the three lines into an X while the menu is open. */
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+  background: transparent;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-nav {
+  width: 100%;
+  display: none;
+  padding-bottom: var(--space-2);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+/* Without JavaScript the menu button cannot work, so show the links instead. */
+.no-js .site-nav {
+  display: block;
+}
+
+.no-js .nav-toggle {
+  display: none;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.65rem 0.9rem;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-list a:hover {
+  background: var(--navy-700);
+  color: var(--white);
+}
+
+/* The current page is marked with aria-current="page" in the HTML. */
+.nav-list a[aria-current="page"] {
+  background: var(--teal-500);
+  color: var(--navy-900);
+}
+
+/* 5. Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--teal-700);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--navy-700);
+  color: var(--white);
+}
+
+.btn--outline {
+  background: transparent;
+  border-color: currentColor;
+  color: var(--navy-900);
+}
+
+.btn--outline:hover {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--white);
+}
+
+.btn--light {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.btn--light:hover {
+  background: var(--white);
+  color: var(--navy-900);
+}
+
+.btn--small {
+  min-height: 40px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+.btn--danger {
+  background: transparent;
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.btn--danger:hover {
+  background: var(--error);
+  color: var(--white);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* 6. Page components ------------------------------------------------------ */
+
+/* Hero (home page banner) */
+.hero {
+  background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 60%, var(--teal-700) 130%);
+  color: var(--white);
+  padding: var(--space-5) 0;
+}
+
+.hero h1,
+.hero h2 {
+  color: var(--white);
+}
+
+.hero-grid {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-100);
+  margin-bottom: var(--space-1);
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  max-width: 55ch;
+  color: #e6edf6;
+}
+
+.profile-photo {
+  margin: 0 auto;
+  max-width: 320px;
+  text-align: center;
+}
+
+.profile-photo img {
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+}
+
+.profile-photo figcaption {
+  margin-top: var(--space-1);
+  font-size: 0.9rem;
+  color: #e6edf6;
+}
+
+/* Page banner used on the inner pages */
+.page-banner {
+  background: var(--navy-900);
+  color: var(--white);
+  padding: var(--space-4) 0 var(--space-3);
+}
+
+.page-banner h1 {
+  color: var(--white);
+  margin-bottom: var(--space-1);
+}
+
+.page-banner p {
+  color: #d5deea;
+  max-width: 65ch;
+  margin: 0;
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(11, 31, 58, 0.12);
+}
+
+.card h3 {
+  margin-bottom: var(--space-1);
+}
+
+.card-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--teal-100);
+  color: var(--teal-700);
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+}
+
+/* Skill "chips" */
+.chip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.chip-list li {
+  background: var(--teal-100);
+  color: var(--navy-900);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Project cards */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.project-body {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-body .button-row {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  color: #5c4500;
+  margin-bottom: var(--space-1);
+  align-self: flex-start;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-list li {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  background: var(--grey-50);
+  border: 1px solid var(--grey-200);
+}
+
+/* Notices and information boxes */
+.notice {
+  border-left: 5px solid var(--warning-border);
+  background: var(--warning-bg);
+  padding: var(--space-2);
+  border-radius: 0 8px 8px 0;
+  margin: var(--space-2) 0;
+}
+
+.notice--info {
+  border-left-color: var(--teal-500);
+  background: var(--teal-100);
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+/* Bulleted lists inside content */
+.content-list {
+  padding-left: 1.25rem;
+  margin: 0 0 var(--space-2);
+}
+
+.content-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;           /* the table scrolls inside its box on narrow screens */
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+
+caption {
+  text-align: left;
+  font-weight: 700;
+  padding: var(--space-2);
+  color: var(--navy-900);
+}
+
+th,
+td {
+  padding: 0.75rem var(--space-2);
+  text-align: left;
+  border-top: 1px solid var(--grey-200);
+}
+
+thead th {
+  background: var(--navy-900);
+  color: var(--white);
+}
+
+tbody th {
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--grey-50);
+}
+
+/* Audio / transcript */
+.media-box audio {
+  width: 100%;
+  margin: var(--space-2) 0;
+}
+
+details {
+  background: var(--grey-50);
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+  padding: var(--space-1) var(--space-2);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.4rem 0;
+}
+
+/* Forms */
+.form {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.form-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-weight: 700;
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--grey-600);
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--grey-200);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--teal-500);
+  box-shadow: 0 0 0 3px var(--teal-100);
+  outline: none;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Fields that failed validation (set by JavaScript with aria-invalid). */
+[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.field-error {
+  color: var(--error);
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-height: 1.4em;
+  margin: 0;
+}
+
+.form-status {
+  padding: var(--space-2);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status--success {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.form-status--error {
+  background: var(--error-bg);
+  color: var(--error);
+  border: 1px solid var(--error);
+}
+
+/* Planner */
+.planner-layout {
+  display: grid;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.task-form-row {
+  display: grid;
+  gap: var(--space-2);
+  /* Two columns when there is room (at least 190px each), otherwise one. */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-1);
+  margin: 0 0 var(--space-2);
+}
+
+.stat {
+  background: var(--grey-50);
+  border: 1px solid var(--grey-200);
+  border-radius: 10px;
+  padding: var(--space-1);
+  text-align: center;
+}
+
+.stat dt {
+  font-size: 0.85rem;
+  color: var(--grey-600);
+}
+
+.stat dd {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--navy-900);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.filter-btn {
+  min-height: 40px;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  border: 2px solid var(--navy-500);
+  background: var(--white);
+  color: var(--navy-900);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--white);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.task-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--grey-200);
+  border-left: 5px solid var(--teal-500);
+  border-radius: 10px;
+  background: var(--white);
+  animation: task-in 0.25s ease;
+}
+
+.task-item.is-complete {
+  border-left-color: var(--grey-200);
+  background: var(--grey-50);
+}
+
+.task-item.is-complete .task-title {
+  text-decoration: line-through;
+  color: var(--grey-600);
+}
+
+.task-check {
+  width: 24px;
+  height: 24px;
+  min-height: 0;
+  accent-color: var(--teal-700);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-text {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.task-title {
+  font-weight: 700;
+  overflow-wrap: anywhere;   /* very long words wrap instead of overflowing */
+  display: block;
+}
+
+.task-meta {
+  font-size: 0.9rem;
+  color: var(--grey-600);
+  overflow-wrap: anywhere;
+}
+
+.task-meta .overdue {
+  color: var(--error);
+  font-weight: 700;
+}
+
+.task-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-4) var(--space-2);
+  border: 2px dashed var(--grey-200);
+  border-radius: var(--radius);
+  color: var(--grey-600);
+}
+
+@keyframes task-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Grade calculator */
+.grade-result {
+  margin-top: var(--space-2);
+  padding: var(--space-2);
+  border-radius: 10px;
+  background: var(--teal-100);
+  font-weight: 600;
+}
+
+.grade-result:empty {
+  display: none;
+}
+
+.grade-letter {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  display: block;
+}
+
+/* 7. Footer --------------------------------------------------------------- */
+.site-footer {
+  background: var(--navy-900);
+  color: #c9d4e3;
+  padding: var(--space-3) 0;
+  margin-top: var(--space-4);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.footer-inner p {
+  margin: 0;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.site-footer a {
+  color: var(--white);
+}
+
+.site-footer a:hover {
+  color: var(--teal-100);
+}
+
+/* 8. Responsive breakpoints ---------------------------------------------- */
+
+/* Tablets and up */
+@media (min-width: 700px) {
+  .grid--two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Desktop: show the full navigation bar and hide the menu button */
+@media (min-width: 900px) {
+  .header-inner {
+    flex-wrap: nowrap;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav,
+  .no-js .site-nav {
+    display: block;
+    width: auto;
+    padding: 0;
+  }
+
+  .nav-list {
+    flex-direction: row;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.4fr 1fr;
+  }
+
+  .planner-layout {
+    grid-template-columns: 360px 1fr;
+  }
+}
+
+/* 9. Reduced-motion support ---------------------------------------------- */
+/* People who ask their device for less motion get no animations. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .btn:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* Narrow card used for the grade calculator */
+.card--narrow {
+  max-width: 520px;
+}

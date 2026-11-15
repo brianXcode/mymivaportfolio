@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Me | Olalekan Abdulqudus Fatokun – Student Portfolio</title>
+  <meta name="description" content="Education, career aspirations, skills and interests of Olalekan Abdulqudus Fatokun.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        Olalekan Abdulqudus Fatokun
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" aria-current="page">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="container">
+        <h1>About Me</h1>
+        <p>My education, the career I am working towards, my skills and what I enjoy.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="education-heading">
+      <div class="container grid grid--two">
+        <article>
+          <h2 id="education-heading">Educational background</h2>
+          <p>I am currently studying at <strong>MIVA Open University</strong>.</p>
+          <ul class="content-list">
+            <li>Programme: B.Sc. Software Engineering</li>
+            <li>Level: 100 level, second semester</li>
+            <li>Matriculation number: 2024/C/SENG/0838</li>
+            <li>Current course: COS 106 – Introduction to Web Technologies</li>
+          </ul>
+        </article>
+
+        <article>
+          <h2>Career aspirations</h2>
+          <p>
+            I want to become a software developer who builds reliable software that solves
+            real-world problems. I am especially interested in applications that people depend
+            on every day, where correctness, security and a clear user experience matter.
+          </p>
+          <p>
+            Through my studies I aim to strengthen my foundations in web technologies,
+            programming and databases, and to keep building practical projects.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--tinted" aria-labelledby="skills-heading">
+      <div class="container grid grid--two">
+        <article>
+          <h2 id="skills-heading">Technical skills</h2>
+          <ul class="content-list">
+            <li><strong>HTML</strong> – structuring web pages with semantic elements</li>
+            <li><strong>CSS</strong> – styling and responsive layouts with Flexbox and Grid</li>
+            <li><strong>JavaScript</strong> – interactivity, DOM manipulation and form validation</li>
+            <li><strong>Java</strong> – object-oriented programming</li>
+            <li><strong>Go</strong> – fast, simple back-end programs and services</li>
+            <li><strong>SQL</strong> – storing and querying data in relational databases</li>
+          </ul>
+        </article>
+
+        <article>
+          <h2>Hobbies and interests</h2>
+          <ul class="content-list">
+            <li>Software development and learning new programming languages</li>
+            <li>Solving problems and puzzles step by step</li>
+            <li>Building small, useful applications</li>
+            <li>Playing football</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Academic information table -->
+    <section class="section" aria-labelledby="academic-heading">
+      <div class="container">
+        <h2 id="academic-heading">Academic information</h2>
+        <div class="table-wrap">
+          <table>
+            <caption>Courses taken at MIVA Open University</caption>
+            <thead>
+              <tr>
+                <th scope="col">Course code</th>
+                <th scope="col">Course title</th>
+                <th scope="col">Semester</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">COS 106</th>
+                <td>Introduction to Web Technologies</td>
+                <td>100 level, second semester</td>
+                <td>In progress (term project)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Audio introduction with transcript -->
+    <section class="section section--tinted" aria-labelledby="media-heading">
+      <div class="container media-box">
+        <h2 id="media-heading">Portfolio introduction (audio)</h2>
+        <p>A short spoken introduction to me and this website, in my own voice.</p>
+        <audio controls preload="metadata" aria-describedby="transcript-summary">
+          <source src="assets/media/portfolio-intro.m4a" type="audio/mp4">
+          <source src="assets/media/portfolio-intro.opus" type="audio/ogg; codecs=opus">
+          Your browser does not support the audio element.
+          <a href="assets/media/portfolio-intro.m4a">Download the audio introduction</a>.
+        </audio>
+        <details>
+          <summary id="transcript-summary">Read the transcript</summary>
+          <p>
+            Hello, and welcome to my portfolio. My name is Olalekan Abdulqudus Fatokun, and I am a
+            student at MIVA Open University. This website is my term project for COS 106,
+            Introduction to Web Technologies.
+          </p>
+          <p>
+            I am interested in software development, problem-solving, and building useful
+            applications. On this site you will find my projects, including an academic task
+            planner and a grade calculator, both written in plain JavaScript.
+          </p>
+          <p>
+            My goal is to develop reliable software that solves real-world problems.
+            Thank you for visiting.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="current-year">2026</span> Olalekan Abdulqudus Fatokun · COS 106 Term Project · MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

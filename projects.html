@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Olalekan Abdulqudus Fatokun – Student Portfolio</title>
+  <meta name="description" content="Projects by Olalekan Abdulqudus Fatokun: portfolio website, academic task planner and grade calculator.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        Olalekan Abdulqudus Fatokun
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="planner.html">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="container">
+        <h1>Projects</h1>
+        <p>Three student projects built for COS 106. Each one runs right here in the browser.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="visually-hidden">Project list</h2>
+        <div class="grid grid--cards">
+
+          <article class="card project-card">
+            <img src="assets/images/project-portfolio.png" width="1280" height="800" loading="lazy"
+                 alt="Screenshot of this portfolio's home page: navy header with navigation, a welcome headline and a photograph area.">
+            <div class="project-body">
+              <span class="tag">COS 106 project</span>
+              <h3>Student Portfolio Website</h3>
+              <p>A five-page responsive website that introduces me, lists my skills and projects, and includes a planner and contact form.</p>
+              <ul class="tech-list" aria-label="Technologies used">
+                <li>HTML5</li><li>CSS Grid &amp; Flexbox</li><li>JavaScript</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn btn--primary btn--small" href="index.html">Open the website</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <img src="assets/images/project-planner.png" width="1280" height="800" loading="lazy"
+                 alt="Screenshot of the Academic Planner showing the add-task form, task counts, filters and a list of tasks.">
+            <div class="project-body">
+              <span class="tag">COS 106 project</span>
+              <h3>Academic Task Planner</h3>
+              <p>A to-do list for coursework: add tasks with a course and due date, mark them done, filter them, and keep them after a refresh.</p>
+              <ul class="tech-list" aria-label="Technologies used">
+                <li>JavaScript arrays</li><li>DOM</li><li>localStorage</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn btn--primary btn--small" href="planner.html">Open the planner</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <img src="assets/images/project-grade-calculator.png" width="1280" height="800" loading="lazy"
+                 alt="Screenshot of the Grade Calculator: a score of 72 entered and the result showing grade A, 5 grade points.">
+            <div class="project-body">
+              <span class="tag">COS 106 project · live demo</span>
+              <h3>Student Grade Calculator</h3>
+              <p>Type a score from 0 to 100 and it shows the letter grade and grade point on a 5-point scale.</p>
+              <ul class="tech-list" aria-label="Technologies used">
+                <li>HTML forms</li><li>JavaScript functions</li><li>Validation</li>
+              </ul>
+              <div class="button-row">
+                <a class="btn btn--primary btn--small" href="#grade-calculator">Try the calculator</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <p class="hint">
+          The source code for all three projects is on GitHub:
+          <a href="https://github.com/brianXcode/mymivaportfolio" rel="noopener">github.com/brianXcode/mymivaportfolio</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Working grade calculator demo -->
+    <section class="section section--tinted" id="grade-calculator" aria-labelledby="calc-heading">
+      <div class="container">
+        <h2 id="calc-heading">Grade Calculator demo</h2>
+        <p class="section-intro">
+          This uses a common Nigerian university 5-point scale (A = 70–100, B = 60–69, C = 50–59,
+          D = 45–49, E = 40–44, F = 0–39). It is for demonstration only; check MIVA’s official
+          grading policy for your actual results.
+        </p>
+        <div class="card card--narrow">
+          <form id="grade-form" class="form" novalidate>
+            <div class="form-field">
+              <label for="score">Score (0–100)</label>
+              <input id="score" name="score" type="number" min="0" max="100" step="0.5"
+                     inputmode="decimal" aria-describedby="score-error" required>
+              <p id="score-error" class="field-error" aria-live="polite"></p>
+            </div>
+            <button class="btn btn--primary" type="submit">Calculate grade</button>
+          </form>
+          <div id="grade-result" class="grade-result" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="current-year">2026</span> Olalekan Abdulqudus Fatokun · COS 106 Term Project · MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/grade-calculator.js"></script>
+</body>
+</html>

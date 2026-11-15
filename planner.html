@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Planner | Olalekan Abdulqudus Fatokun – Student Portfolio</title>
+  <meta name="description" content="A browser-based academic task planner built with JavaScript.">
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">OF</span>
+        Olalekan Abdulqudus Fatokun
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html" aria-current="page">Academic Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="container">
+        <h1>Academic Planner</h1>
+        <p>Keep track of assignments, readings and exam preparation.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="notice notice--info">
+          <p><strong>Personal, browser-based planner.</strong> Your tasks are saved only in this
+          browser on this device (using localStorage). They are not sent anywhere and this is not
+          a shared university database. Clearing your browser data removes them.</p>
+        </div>
+        <p id="storage-warning" class="notice" hidden></p>
+
+        <div class="planner-layout">
+          <!-- Add-task form -->
+          <section class="card" aria-labelledby="add-heading">
+            <h2 id="add-heading">Add a task</h2>
+            <form id="task-form" class="form" novalidate>
+              <div class="form-field">
+                <label for="task-title">Task title <span aria-hidden="true">*</span></label>
+                <input id="task-title" name="title" type="text" maxlength="120" autocomplete="off"
+                       aria-describedby="task-title-error" required>
+                <p id="task-title-error" class="field-error"></p>
+              </div>
+              <div class="task-form-row">
+                <div class="form-field">
+                  <label for="task-course">Course (optional)</label>
+                  <input id="task-course" name="course" type="text" maxlength="40" placeholder="e.g. COS 106">
+                </div>
+                <div class="form-field">
+                  <label for="task-due">Due date (optional)</label>
+                  <input id="task-due" name="dueDate" type="date">
+                </div>
+              </div>
+              <button class="btn btn--primary" type="submit">Add task</button>
+            </form>
+          </section>
+
+          <!-- Task list -->
+          <section class="card" aria-labelledby="tasks-heading">
+            <h2 id="tasks-heading">My tasks</h2>
+
+            <dl class="stats">
+              <div class="stat"><dt>Total</dt><dd id="count-total">0</dd></div>
+              <div class="stat"><dt>Pending</dt><dd id="count-pending">0</dd></div>
+              <div class="stat"><dt>Completed</dt><dd id="count-completed">0</dd></div>
+            </dl>
+
+            <div class="filter-group" role="group" aria-label="Show tasks">
+              <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-btn" type="button" data-filter="pending" aria-pressed="false">Pending</button>
+              <button class="filter-btn" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+            </div>
+
+            <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+            <p id="empty-state" class="empty-state" hidden></p>
+
+            <!-- Screen readers announce changes written here (e.g. "Task added"). -->
+            <p id="planner-status" class="visually-hidden" role="status" aria-live="polite"></p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="current-year">2026</span> Olalekan Abdulqudus Fatokun · COS 106 Term Project · MIVA Open University</p>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>
